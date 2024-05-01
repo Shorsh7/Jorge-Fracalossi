@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from . import models
 
-from .forms import ComisionForm, EstudianteForm
+from .forms import ComisionForm, EstudianteForm, ProfesorForm
 
 
 def home(request):
@@ -40,3 +40,21 @@ def estudiante_create(request):
     else:
         form = EstudianteForm()
         return render(request, "Estudiante/create.html", {"form": form})
+    
+def profesor_home(request):
+    query = models.Profesor.objects.all()
+    context = {"profesores": query}
+    return render(request, "Profesor/index.html", context)
+
+def profesor_create(request):
+    if(request.method == "POST"):
+        form = ProfesorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("Clase:profesor_home")
+        else:
+            form2 = ProfesorForm()
+            return render(request, "Profesor/create.html", {"error": form.errors, "form": form2})
+    else:
+        form = ProfesorForm()
+        return render(request, "Profesor/create.html", {"form": form})
