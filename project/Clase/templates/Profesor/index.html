@@ -7,6 +7,6 @@
 {% block content %}
     <a href="{% url 'Clase:profesor_create' %}">Añadir nuevo Profesor</a>
     {% for profesor in profesores %}
-        <p>{{ profesor.nombre }} | {{ profesor.comision }}</p>        
+        <p>{{ profesor.nombre }} </p>        
     {% endfor %}
 {% endblock content %}

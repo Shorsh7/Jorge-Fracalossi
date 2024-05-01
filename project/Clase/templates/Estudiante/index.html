@@ -7,6 +7,6 @@
 {% block content %}
     <a href="{% url 'Clase:estudiante_create' %}">Añadir nuevo Estudiante</a>
     {% for estudiante in estudiantes %}
-        <p>{{ estudiante.nombre }} | {{ estudiante.comision }}</p>        
+        <p>{{ estudiante.nombre }} </p>        
     {% endfor %}
 {% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Cursos
+{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'Clase:curso_create' %}">Registrar nuevo Curso</a>
+    {% for curso in cursos %}
+        <p>{{ curso.nombre }} </p>        
+    {% endfor %}
+{% endblock content %}
